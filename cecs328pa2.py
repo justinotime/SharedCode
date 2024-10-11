@@ -3,10 +3,11 @@ class OceanNode:
         self.animal = animal
         self.left = left
         self.right = right
+        
 def ocean_explore(area, animal_set):
     def search(area, animal_set, depth):
         if area is None:
-            return False, depth
+            return False, 0
         if animal_set <= area.animal:
             return True, depth
             
@@ -23,8 +24,9 @@ def ocean_explore(area, animal_set):
         elif found_right:
             return found_right, right_depth
         else:
-            return False, depth
+            return False, 0
     return search(area, animal_set, 0)
+
 def main():
     area = OceanNode({"mako shark","blue whale"}, OceanNode({"krill","angelfish","zebra fish"}, None,
            OceanNode({"squid","sand shark"}, OceanNode({"eel","manta ray","lemon shark"},None,None), None)),
